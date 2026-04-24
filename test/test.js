@@ -2,9 +2,10 @@ let x = 5
 try{
     x = y+1
 } catch(erro){
-    let text = `
-    <p>Nome do erro:${erro.name}</p>
-    <p>Mensagem do erro: ${erro.message}</p>
-    <p>Stack: ${erro.stack})</p>`
+    let text = `<div>
+    <p><strong>Nome do erro:</strong>${erro.name}</p>
+    <p><strong>Mensagem do erro:</strong> ${erro.message}</p>
+    <p><strong>Stack:</strong> ${erro.stack})</p>
+    </div>`
     document.body.innerHTML = text
 }
