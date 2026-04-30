@@ -18,7 +18,6 @@ const carregarComponente = async (caminho, container) => {
     }
 }
 
-carregarComponente(caminho, body)
 
 // carregarComponente('c-test.html', document.querySelector('body'))
 
@@ -27,7 +26,7 @@ const gerarErro = () => {
     try {
         let idade = -5
         if (idade < 0) {
-            let erro = new Error('idade invalida    ')
+            let erro = new Error('idade invalida')
             erro.codigo = 1001
             erro.tipo = 'validacao'
             throw erro
@@ -45,7 +44,8 @@ const gerarErro = () => {
 }
 /* Criar uma função geradora de erro */
 
-
+carregarComponente(caminho, body)
+gerarErro()
 /* Testando a função: carregarComponente
 01 - Criar o componente que será injetado
 02 - Criar o elemento que irá receber o componente (no index index.html) (<div id="app"></div>)
