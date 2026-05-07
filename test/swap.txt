@@ -1,0 +1,86 @@
+/* Testes com os exemplos da w3 Schools */
+
+/* Lançar um excessão (erro personalizado) */
+
+// try{
+
+//     let idade = 2;
+
+//     if (idade < 0){
+//         throw GeradorErros('Idade Invalida',1001,'VALIDACAO')
+//     }
+
+// } catch(erro){
+
+    // let text = `
+    // <strong>Nome do erro:</strong> ${erro.name} <br />
+    // <strong>Mensagem:</strong> ${erro.message} <br />
+    // <strong>Código</strong> ${erro.codigo}<br />
+    // <strong>Tipo</strong> ${erro.tipo}<br />
+    // <strong>Stack:</strong> <span>${erro.stack}</span>
+    // `;
+
+    // document.body.innerHTML = text
+
+// };
+
+
+/* Criar uma função geradora de erro */
+
+function GeradorErros(mensagem, codigo, tipo){
+    let erro = new Error(mensagem)
+    erro.codigo = codigo
+    erro.tipo = tipo
+
+    return erro
+}
+
+const input_pix = document.querySelector('.input_pix')
+const display_saldo = document.querySelector('.saldo')
+const container_error = document.querySelector('.container')
+const botao_enviar = document.querySelector('.botao_enviar')
+
+const saldo = 200;
+const pix = Number(input_pix.value)
+
+const load_items = (saldo) =>{
+    display_saldo.textContent = saldo
+}
+
+botao_enviar.addEventListener('click', (e)=>{
+    try{
+
+        if (saldo < pix){
+            throw GeradorErros('Saldo Insuficiente',50,'FINANCEIRO')
+        }
+
+    } catch(erro){
+
+        let text = `
+        <span><strong>Nome do erro:</strong> ${erro.name}</span> <br />
+        <span><strong>Mensagem:</strong> ${erro.message}</span> <br />
+        <span><strong>Código:</strong> ${erro.codigo}</span> <br />
+        <span><strong>Tipo:</strong> ${erro.tipo}</span> <br />
+        <span><strong>Stack:</strong> ${erro.stack}</span>
+        `;
+
+        container_error.style.display='block';
+        container_error.innerHTML = text;
+        
+
+    }
+})
+
+(window.onload = load_items(saldo))
+
+/* Testando a função: carregarComponente
+01 - Criar o componente que será injetado
+02 - Criar o elemento que irá receber o componente (no index index.html) (<div id="app"></div>)
+03 - Capturar o elemento que irá receber o componente( no index.html)
+04 - Utilizar a função para carregar o componente */
+
+
+/* Criar uma requisição HTTP com fetch e .then */
+
+/* Criar uma requisição HTTP com fecth e async/await */
+
