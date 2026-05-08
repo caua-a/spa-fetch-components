@@ -1,0 +1,3 @@
+https://servicodados.ibge.gov.br/api/docs/localidades#api-_
+
+https://servicodados.ibge.gov.br/api/v1/localidades/estados/{UF}/distritos
